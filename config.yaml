@@ -1,0 +1,10 @@
+access_log:
+  pattern: >
+    (?P<ip>\d+\.\d+\.\d+\.\d+)\s+-\s+-\s+\[(?P<timestamp>[^\]]+)\]\s+\"(?P<method>GET|POST|PUT|DELETE)\s+(?P<path>[^\"]+)\"\s+(?P<status>\d{3})
+
+error_log:
+  pattern: >
+    (?P<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})\s+(?P<level>ERROR|WARNING|INFO)\s+(?P<message>.+)
+
+output:
+  include_summary: true
