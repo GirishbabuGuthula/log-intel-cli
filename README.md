@@ -222,4 +222,4 @@ Tests cover:
 ## 🧑‍💻 Author
 
 **Girish Babu**  
-AI Engineering Enthusiast | Backend & Systems Builder
+AI Engineering Enthusiast | Full Stack Developer
