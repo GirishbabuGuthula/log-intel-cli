@@ -4,6 +4,7 @@ from src.config_loader import load_config
 from src.reporter import write_output
 from src.analyser import analyse_access_log, analyse_errors_log
 from src.anomaly import bucket_by_time, detect_anomalies
+from src.nlp_cluster import cluster_log_messages
 
 # ACCESS_LOG = 'logs/access.log'
 # ERRORS_LOG = 'logs/errors.log'
@@ -39,13 +40,18 @@ def main():
     time_buckets = bucket_by_time(parsed_logs, window="hour")
     anomalies = detect_anomalies(time_buckets)
 
+    error_messages = [log["message"] for log in parsed_logs]
+
+    clusters = cluster_log_messages(error_messages)
+
     result = {
         "access_log": {
             "ip_counts": dict(ip_counts),
             "status_counts": dict(status_counts)
         },
         "error_log": dict(error_counts),
-        "anomalies": anomalies
+        "anomalies": anomalies,
+        "log_clusters": clusters
     }
 
     write_output(result, args.output)
