@@ -75,7 +75,7 @@ log-intel-cli/
 ## 🛠️ Installation
 
 ```bash
-git clone https://github.com/your-username/log-intel-cli.git
+git clone https://github.com/GirishbabuGuthula/log-intel-cli.git
 cd log-intel-cli
 pip install -r requirements.txt
 ```
